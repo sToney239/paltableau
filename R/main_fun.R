@@ -240,11 +240,11 @@ scale_fill_tableau_gradient2 = function(palette = pal_tableau$diverging$classic_
   start2 = 1-0.5 * (1-start)
   end2 = 1-0.5 *(1- end)
   manual_rescale2 = \(x) {
-    x = dplyr::case_when(
-      x < 0.5 ~ scales::rescale(x,to = c(start1,end1),from = c(0,0.5)),
-      x > 0.5 ~ scales::rescale(x,to = c(start2,end2),from = c(0.5,1)),
-      .default = 0.5
-    )
+    x <- ifelse(x < 0.5,
+                scales::rescale(x,to = c(start1,end1),from = c(0,0.5)),
+                ifelse(x > 0.5,
+                       scales::rescale(x,to = c(start2,end2),from = c(0.5,1)),
+                       0.5))
     scales::gradient_n_pal(colours = the_pal)(x)
   }
   # manual_rescale = \(x) scales::gradient_n_pal(colours = the_pal)(scales::rescale(x,to = c(start,end),from = c(0,1)))
@@ -284,11 +284,11 @@ scale_color_tableau_gradient2 = function(palette = pal_tableau$diverging$classic
   start2 = 1-0.5 * (1-start)
   end2 = 1-0.5 *(1- end)
   manual_rescale2 = \(x) {
-    x = dplyr::case_when(
-      x < 0.5 ~ scales::rescale(x,to = c(start1,end1),from = c(0,0.5)),
-      x > 0.5 ~ scales::rescale(x,to = c(start2,end2),from = c(0.5,1)),
-      .default = 0.5
-    )
+    x <- ifelse(x < 0.5,
+                scales::rescale(x,to = c(start1,end1),from = c(0,0.5)),
+                ifelse(x > 0.5,
+                       scales::rescale(x,to = c(start2,end2),from = c(0.5,1)),
+                       0.5))
     scales::gradient_n_pal(colours = the_pal)(x)
   }
   # manual_rescale = \(x) scales::gradient_n_pal(colours = the_pal)(scales::rescale(x,to = c(start,end),from = c(0,1)))
@@ -331,11 +331,11 @@ scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$r
   start2 = 1-0.5 * (1-start)
   end2 = 1-0.5 *(1- end)
   manual_rescale2 = \(x) {
-    x = dplyr::case_when(
-      x < 0.5 ~ scales::rescale(x,to = c(start1,end1),from = c(0,0.5)),
-      x > 0.5 ~ scales::rescale(x,to = c(start2,end2),from = c(0.5,1)),
-      .default = 0.5
-    )
+    x <- ifelse(x < 0.5,
+                scales::rescale(x,to = c(start1,end1),from = c(0,0.5)),
+                ifelse(x > 0.5,
+                       scales::rescale(x,to = c(start2,end2),from = c(0.5,1)),
+                       0.5))
     scales::gradient_n_pal(colours = the_pal)(x)
   }
   if (!is.null(breaks)) {
@@ -386,11 +386,11 @@ scale_color_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$
   start2 = 1-0.5 * (1-start)
   end2 = 1-0.5 *(1- end)
   manual_rescale2 = \(x) {
-    x = dplyr::case_when(
-      x < 0.5 ~ scales::rescale(x,to = c(start1,end1),from = c(0,0.5)),
-      x > 0.5 ~ scales::rescale(x,to = c(start2,end2),from = c(0.5,1)),
-      .default = 0.5
-    )
+    x <- ifelse(x < 0.5,
+                scales::rescale(x,to = c(start1,end1),from = c(0,0.5)),
+                ifelse(x > 0.5,
+                       scales::rescale(x,to = c(start2,end2),from = c(0.5,1)),
+                       0.5))
     scales::gradient_n_pal(colours = the_pal)(x)
   }
   if (!is.null(breaks)) {

@@ -14,7 +14,8 @@ LazyData: TRUE
 Depends: 
     R (>= 3.5)
 Imports: 
-    ggplot2
+    ggplot2,
+    scales
 Suggests: 
     knitr,
     rmarkdown
