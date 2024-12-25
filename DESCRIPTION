@@ -2,7 +2,7 @@ Package: paltableau
 Title: tableau palette for ggplot2
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+    person("Tony", "Stone", , "fumeshroom4@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: Tableau palette for ggplot2.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
@@ -11,3 +11,11 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 LazyData: TRUE
+Depends: 
+    R (>= 2.10)
+Imports: 
+    ggplot2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
