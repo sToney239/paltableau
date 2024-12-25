@@ -10,6 +10,7 @@ scale_fill_tableau_binned_gradient(
   direction = 1,
   start = 0,
   end = 1,
+  breaks = NULL,
   ...
 )
 }
@@ -22,7 +23,9 @@ scale_fill_tableau_binned_gradient(
 
 \item{start}{The (corrected) color range in [0,1]⁠ at which the color map starts.}
 
-\item{end}{The (corrected) color range in [0,1]⁠ at which the color map ends.}
+\item{end}{The (corrected) color range in [0,1]⁠ at which the color map ends}
+
+\item{breaks}{The breaks for bins}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2]{binned_scale}}.}
 }

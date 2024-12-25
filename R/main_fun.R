@@ -22,6 +22,7 @@
 #'  scale_color_tableau_discrete(palette = pal_tableau$diverging$orange_blue,
 #'                               direction = -1,
 #'                               start = 0.2,end = 0.8)
+
 scale_fill_tableau_discrete = function(palette = pal_tableau$regular$`Tableau 10`, direction = 1, na.value = "grey50",
                                        start = 0, end = 1, ...) {
   if(palette$type[[1]] != "regular") {
@@ -51,6 +52,7 @@ scale_fill_tableau_discrete = function(palette = pal_tableau$regular$`Tableau 10
 #'  scale_fill_tableau_discrete(palette = pal_tableau$diverging$orange_blue,
 #'                               direction = -1,
 #'                               start = 0.2,end = 0.8)
+
 scale_color_tableau_discrete = function(palette = pal_tableau$regular$`Tableau 10`, direction = 1, na.value = "grey50",
                                        start = 0, end = 1,
                                        ...) {
@@ -84,6 +86,7 @@ scale_color_tableau_discrete = function(palette = pal_tableau$regular$`Tableau 1
 #'   scale_fill_tableau_gradient(palette = pal_tableau$diverging$temperature,
 #'                               direction = 1,
 #'                               start = 0.2,end = 0.8)
+
 scale_fill_tableau_gradient = function(palette = pal_tableau$sequential$blue_teal,
                                        direction = 1, na.value = "grey50",
                                        start = 0, end = 1,
@@ -113,6 +116,7 @@ scale_fill_tableau_gradient = function(palette = pal_tableau$sequential$blue_tea
 #'   scale_color_tableau_gradient(palette = pal_tableau$diverging$temperature,
 #'                                direction = 1,
 #'                                start = 0.2,end = 0.8)
+
 scale_color_tableau_gradient = function(palette = pal_tableau$sequential$blue_teal, direction = 1,
                                         na.value = "grey50", start = 0, end = 1,
                                         guide = "colourbar", ...) {
@@ -142,6 +146,7 @@ scale_color_tableau_gradient = function(palette = pal_tableau$sequential$blue_te
 #'                                      direction = 1,
 #'                                      n.breaks = 7,
 #'                                      start = 0.2,end = 0.8)
+
 scale_fill_tableau_binned_gradient = function(palette = pal_tableau$sequential$blue_teal,
                                               na.value = "grey50",
                                               direction = 1,start = 0, end = 1,breaks = NULL,
@@ -183,6 +188,7 @@ scale_fill_tableau_binned_gradient = function(palette = pal_tableau$sequential$b
 #'                                       direction = 1,
 #'                                       n.breaks = 7,
 #'                                       start = 0.2,end = 0.8)
+
 scale_color_tableau_binned_gradient = function(palette = pal_tableau$sequential$blue_teal, na.value = "grey50",
                                                direction=1,start = 0, end = 1,breaks = NULL, ...) {
   the_pal = palette
@@ -221,6 +227,7 @@ scale_color_tableau_binned_gradient = function(palette = pal_tableau$sequential$
 #'   scale_fill_tableau_gradient2(palette = pal_tableau$diverging$temperature,
 #'                                midpoint = 6,
 #'                                direction = 1)
+
 scale_fill_tableau_gradient2 = function(palette = pal_tableau$diverging$classic_red_blue,
                                         midpoint = 0,
                                         direction = 1,na.value = "grey50",
@@ -265,6 +272,8 @@ scale_fill_tableau_gradient2 = function(palette = pal_tableau$diverging$classic_
 #'   scale_color_tableau_gradient2(palette = pal_tableau$diverging$red_blue_white,
 #'                                 direction = 1,
 #'                                 midpoint = 6)
+#'
+
 scale_color_tableau_gradient2 = function(palette = pal_tableau$diverging$classic_red_blue, midpoint = 0, direction = 1,space = "Lab", na.value = "grey50",
                                          start = 0, end = 1,
                                          transform = "identity", guide = "colourbar",  ...) {
@@ -306,13 +315,15 @@ scale_color_tableau_gradient2 = function(palette = pal_tableau$diverging$classic
 #'
 #' @examples ggplot(iris)+
 #'  geom_col(aes(Sepal.Length,Sepal.Width,fill = Sepal.Length))+
-#'  scale_fill_tableau_binned_gradient2(palette = pal_tableau$diverging$temperature,
-#'                                       direction = 1)
+#'  scale_fill_tableau_binned_gradient2(palette = pal_tableau$diverging$temperature)
+#'
+#'
 
-scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$red_blue_white,...,  na.value = "grey50",
+scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$red_blue_white,
+                                               na.value = "grey50",
                                                direction = 1,start = 0, end = 1,
                                                breaks = NULL,
-                                               transform = "identity") {
+                                               transform = "identity",...) {
   the_pal = palette
   if(direction == 1) the_pal = rev(the_pal)
   start1 =  0.5 * (1-end)
@@ -346,35 +357,6 @@ scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$r
 }
 
 
-# scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$red_blue_white,...,  na.value = "grey50",
-#                                                direction = 1,start = 0, end = 1,
-#                                                transform = "identity") {
-#   the_pal = palette
-#   if(direction == 1) the_pal = rev(the_pal)
-#   start1 =  0.5 * (1-end)
-#   end1 = 0.5 * (1-start)
-#   start2 = 1-0.5 * (1-start)
-#   end2 = 1-0.5 *(1- end)
-#   manual_rescale2 = \(x) {
-#     x = dplyr::case_when(
-#       x < 0.5 ~ scales::rescale(x,to = c(start1,end1),from = c(0,0.5)),
-#       x > 0.5 ~ scales::rescale(x,to = c(start2,end2),from = c(0.5,1)),
-#       .default = 0.5
-#     )
-#     scales::gradient_n_pal(colours = the_pal)(x)
-#   }
-#   # manual_rescale = \(x) scales::gradient_n_pal(colours = the_pal)(scales::rescale(x,to = c(start,end),from = c(0,1)))
-#   binned_scale("fill",
-#                palette=  manual_rescale2,# scales::gradient_n_pal(colours = the_pal),
-#                na.value = na.value,
-#                transform = transform,
-#                guide = guide_colorbar(theme = theme(legend.ticks = element_blank())),
-#                show.limits = TRUE,
-#                ...,
-#                oob = scales::squish)
-# }
-
-
 #' Tableau color scales (binned & low-mid-high)
 #'
 #' @param palette Palette from "paltableau" package. <br> Try to type "pal_tableau$" and wait for hint of "regular", "sequential" or "diverging",<br> select one, and type "$" to choose the ultimate palette.
@@ -388,12 +370,14 @@ scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$r
 #'
 #' @examples ggplot(iris)+
 #'  geom_point(aes(Sepal.Length,Sepal.Width,color = Sepal.Length))+
-#'  scale_color_tableau_binned_gradient2(palette = pal_tableau$diverging$red_blue_white,
-#'                                       direction = 1)
-scale_color_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$red_blue_white,...,
+#'  scale_color_tableau_binned_gradient2(palette = pal_tableau$diverging$red_blue_white, direction = 1)
+#'
+
+scale_color_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$red_blue_white,
                                                 na.value = "grey50",
                                                 direction=1,start = 0, end = 1,
                                                 breaks = NULL,
+                                                ...,
                                                 transform = "identity") {
   the_pal = palette
   if(direction == 1) the_pal = rev(the_pal)

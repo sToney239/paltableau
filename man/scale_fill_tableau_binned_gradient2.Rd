@@ -6,18 +6,17 @@
 \usage{
 scale_fill_tableau_binned_gradient2(
   palette = pal_tableau$diverging$red_blue_white,
-  ...,
   na.value = "grey50",
   direction = 1,
   start = 0,
   end = 1,
-  transform = "identity"
+  breaks = NULL,
+  transform = "identity",
+  ...
 )
 }
 \arguments{
 \item{palette}{Palette from "paltableau" package. \if{html}{\out{<br>}} Try to type "pal_tableau$" and wait for hint of "regular", "sequential" or "diverging",\if{html}{\out{<br>}} select one, and type "$" to choose the ultimate palette.}
-
-\item{...}{Other arguments passed on to \code{\link[ggplot2]{binned_scale}}.}
 
 \item{na.value}{Colour to use for missing values}
 
@@ -27,7 +26,11 @@ scale_fill_tableau_binned_gradient2(
 
 \item{end}{The (corrected) color range in [0,1]⁠ at which the color map ends.}
 
+\item{breaks}{The breaks for bins}
+
 \item{transform}{For continuous scales, the name of a transformation object or the object itself. Built-in transformations include "asn", "atanh", "boxcox", "date", "exp", "hms", "identity", "log", "log10", "log1p", "log2", "logit", "modulus", "probability", "probit", "pseudo_log", "reciprocal", "reverse", "sqrt" and "time".\if{html}{\out{<br>}}A transformation object bundles together a transform, its inverse, and methods for generating breaks and labels. Transformation objects are defined in the scales package, and are called ⁠\verb{transform_<name>}⁠. If transformations require arguments, you can call them from the scales package, e.g \code{\link[scales]{transform_boxcox}}... You can create your own transformation with \code{\link[scales]{new_transform}}.}
+
+\item{...}{Other arguments passed on to \code{\link[ggplot2]{binned_scale}}.}
 }
 \description{
 Tableau fill scales (binned & low-mid-high)
@@ -35,6 +38,7 @@ Tableau fill scales (binned & low-mid-high)
 \examples{
 ggplot(iris)+
  geom_col(aes(Sepal.Length,Sepal.Width,fill = Sepal.Length))+
- scale_fill_tableau_binned_gradient2(palette = pal_tableau$diverging$temperature,
+ scale_fill_tableau_binned_gradient2(palette = pal_tableau$diverging$temperature)
+
 
 }

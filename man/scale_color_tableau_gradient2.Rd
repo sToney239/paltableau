@@ -45,4 +45,5 @@ ggplot(iris)+
   scale_color_tableau_gradient2(palette = pal_tableau$diverging$red_blue_white,
                                 direction = 1,
                                 midpoint = 6)
+
 }
