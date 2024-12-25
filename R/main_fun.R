@@ -25,11 +25,11 @@
 scale_fill_tableau_discrete = function(palette = pal_tableau$regular$`Tableau 10`, direction = 1, na.value = "grey50",
                                        start = 0, end = 1, ...) {
   if(palette$type[[1]] != "regular") {
-    the_pal =  palette$value
+    the_pal =  palette
     if(direction != 1) the_pal = rev(the_pal)
     manual_rescale = \(x) scales::gradient_n_pal(colours = the_pal)(scales::rescale(1:x,to = c(start,end),from = c(1,x)))
   } else {
-    manual_rescale = \(x) palette$value
+    manual_rescale = \(x) palette
   }
 
   discrete_scale("fill",
@@ -55,11 +55,11 @@ scale_color_tableau_discrete = function(palette = pal_tableau$regular$`Tableau 1
                                        start = 0, end = 1,
                                        ...) {
   if(palette$type[[1]] != "regular") {
-    the_pal =  palette$value
+    the_pal =  palette
     if(direction != 1) the_pal = rev(the_pal)
     manual_rescale = \(x) scales::gradient_n_pal(colours = the_pal)(scales::rescale(1:x,to = c(start,end),from = c(1,x)))
   } else {
-    manual_rescale = \(x) palette$value
+    manual_rescale = \(x) palette
   }
 
   discrete_scale("color",
@@ -88,7 +88,7 @@ scale_fill_tableau_gradient = function(palette = pal_tableau$sequential$blue_tea
                                        direction = 1, na.value = "grey50",
                                        start = 0, end = 1,
                                        guide = "colourbar",  ...) {
-  the_pal =  palette$value
+  the_pal =  palette
   if(direction != 1) the_pal = rev(the_pal)
   manual_rescale = \(x) scales::gradient_n_pal(colours = the_pal)(scales::rescale(x,to = c(start,end),from = c(0,1)))
   continuous_scale("fill",
@@ -116,7 +116,7 @@ scale_fill_tableau_gradient = function(palette = pal_tableau$sequential$blue_tea
 scale_color_tableau_gradient = function(palette = pal_tableau$sequential$blue_teal, direction = 1,
                                         na.value = "grey50", start = 0, end = 1,
                                         guide = "colourbar", ...) {
-  the_pal = palette$value
+  the_pal = palette
   if(direction != 1) the_pal = rev(the_pal)
   manual_rescale = \(x) scales::gradient_n_pal(colours = the_pal)(scales::rescale(x,to = c(start,end),from = c(0,1)))
   continuous_scale("colour",
@@ -146,7 +146,7 @@ scale_fill_tableau_binned_gradient = function(palette = pal_tableau$sequential$b
                                               na.value = "grey50",
                                               direction = 1,start = 0, end = 1,breaks = NULL,
                                               ...) {
-  the_pal = palette$value
+  the_pal = palette
   if(direction != 1) the_pal = rev(the_pal)
   manual_rescale = \(x) scales::gradient_n_pal(colours = the_pal)(scales::rescale(x,to = c(start,end),from = c(0,1)))
   if (!is.null(breaks)) {
@@ -185,7 +185,7 @@ scale_fill_tableau_binned_gradient = function(palette = pal_tableau$sequential$b
 #'                                       start = 0.2,end = 0.8)
 scale_color_tableau_binned_gradient = function(palette = pal_tableau$sequential$blue_teal, na.value = "grey50",
                                                direction=1,start = 0, end = 1,breaks = NULL, ...) {
-  the_pal = palette$value
+  the_pal = palette
   if(direction != 1) the_pal = rev(the_pal)
   manual_rescale = \(x) scales::gradient_n_pal(colours = the_pal)(scales::rescale(x,to = c(start,end),from = c(0,1)))
   if (!is.null(breaks)) {
@@ -226,7 +226,7 @@ scale_fill_tableau_gradient2 = function(palette = pal_tableau$diverging$classic_
                                         direction = 1,na.value = "grey50",
                                         start = 0, end = 1,
                                         transform = "identity", guide = "colourbar",...) {
-  the_pal = palette$value
+  the_pal = palette
   if(direction == 1) the_pal = rev(the_pal)
   start1 =  0.5 * (1-end)
   end1 = 0.5 * (1-start)
@@ -268,7 +268,7 @@ scale_fill_tableau_gradient2 = function(palette = pal_tableau$diverging$classic_
 scale_color_tableau_gradient2 = function(palette = pal_tableau$diverging$classic_red_blue, midpoint = 0, direction = 1,space = "Lab", na.value = "grey50",
                                          start = 0, end = 1,
                                          transform = "identity", guide = "colourbar",  ...) {
-  the_pal = palette$value
+  the_pal = palette
   if(direction == 1) the_pal = rev(the_pal)
   start1 =  0.5 * (1-end)
   end1 = 0.5 * (1-start)
@@ -313,7 +313,7 @@ scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$r
                                                direction = 1,start = 0, end = 1,
                                                breaks = NULL,
                                                transform = "identity") {
-  the_pal = palette$value
+  the_pal = palette
   if(direction == 1) the_pal = rev(the_pal)
   start1 =  0.5 * (1-end)
   end1 = 0.5 * (1-start)
@@ -349,7 +349,7 @@ scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$r
 # scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$red_blue_white,...,  na.value = "grey50",
 #                                                direction = 1,start = 0, end = 1,
 #                                                transform = "identity") {
-#   the_pal = palette$value
+#   the_pal = palette
 #   if(direction == 1) the_pal = rev(the_pal)
 #   start1 =  0.5 * (1-end)
 #   end1 = 0.5 * (1-start)
@@ -395,7 +395,7 @@ scale_color_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$
                                                 direction=1,start = 0, end = 1,
                                                 breaks = NULL,
                                                 transform = "identity") {
-  the_pal = palette$value
+  the_pal = palette
   if(direction == 1) the_pal = rev(the_pal)
   start1 =  0.5 * (1-end)
   end1 = 0.5 * (1-start)
