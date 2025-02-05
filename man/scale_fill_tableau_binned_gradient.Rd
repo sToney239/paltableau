@@ -11,6 +11,7 @@ scale_fill_tableau_binned_gradient(
   start = 0,
   end = 1,
   breaks = NULL,
+  guide = "coloursteps",
   ...
 )
 }
@@ -27,6 +28,8 @@ scale_fill_tableau_binned_gradient(
 
 \item{breaks}{The breaks for bins}
 
+\item{guide}{Type of legend. Use guide names like 'coloursteps' or 'bins', or use     a function used to create a guide. See \code{\link[ggplot2]{guides}} for more information.}
+
 \item{...}{Other arguments passed on to \code{\link[ggplot2]{binned_scale}}.}
 }
 \description{
@@ -38,5 +41,6 @@ ggplot(iris)+
   scale_fill_tableau_binned_gradient(palette = pal_tableau$diverging$temperature,
                                      direction = 1,
                                      n.breaks = 7,
+                                     guide = guide_bins(theme = theme(legend.ticks = element_blank(),legend.axis.line = element_line(color = "transparent"))),
                                      start = 0.2,end = 0.8)
 }

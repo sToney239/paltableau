@@ -11,6 +11,7 @@ scale_color_tableau_binned_gradient2(
   start = 0,
   end = 1,
   breaks = NULL,
+  guide = "coloursteps",
   ...,
   transform = "identity"
 )
@@ -38,6 +39,7 @@ Tableau color scales (binned & low-mid-high)
 \examples{
 ggplot(iris)+
  geom_point(aes(Sepal.Length,Sepal.Width,color = Sepal.Length))+
- scale_color_tableau_binned_gradient2(palette = pal_tableau$diverging$red_blue_white, direction = 1)
+ scale_color_tableau_binned_gradient2(palette = pal_tableau$diverging$red_blue_white, direction = 1,
+                                      guide = guide_bins(theme = theme(legend.ticks = element_blank(),legend.axis.line = element_line(color = "transparent"))))
 
 }

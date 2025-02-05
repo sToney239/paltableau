@@ -11,6 +11,7 @@ scale_fill_tableau_binned_gradient2(
   start = 0,
   end = 1,
   breaks = NULL,
+  guide = "colorsteps",
   transform = "identity",
   ...
 )
@@ -38,7 +39,8 @@ Tableau fill scales (binned & low-mid-high)
 \examples{
 ggplot(iris)+
  geom_col(aes(Sepal.Length,Sepal.Width,fill = Sepal.Length))+
- scale_fill_tableau_binned_gradient2(palette = pal_tableau$diverging$temperature)
-
+ scale_fill_tableau_binned_gradient2(palette = pal_tableau$diverging$temperature,
+                                     guide = guide_bins(
+                                     theme = theme(legend.ticks = element_blank(),legend.axis.line = element_line(color = "transparent"))))
 
 }

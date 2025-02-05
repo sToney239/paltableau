@@ -138,6 +138,7 @@ scale_color_tableau_gradient = function(palette = pal_tableau$sequential$blue_te
 #' @param start The (corrected) color range in \[0,1\]⁠ at which the color map starts.
 #' @param end The (corrected) color range in \[0,1\]⁠ at which the color map ends
 #' @param breaks The breaks for bins
+#' @param guide Type of legend. Use guide names like 'coloursteps' or 'bins', or use 	a function used to create a guide. See \code{\link[ggplot2]{guides}} for more information.
 #' @param ... Other arguments passed on to \code{\link[ggplot2]{binned_scale}}.
 #'
 #' @examples ggplot(iris)+
@@ -145,11 +146,13 @@ scale_color_tableau_gradient = function(palette = pal_tableau$sequential$blue_te
 #'   scale_fill_tableau_binned_gradient(palette = pal_tableau$diverging$temperature,
 #'                                      direction = 1,
 #'                                      n.breaks = 7,
+#'                                      guide = guide_bins(theme = theme(legend.ticks = element_blank(),legend.axis.line = element_line(color = "transparent"))),
 #'                                      start = 0.2,end = 0.8)
 
 scale_fill_tableau_binned_gradient = function(palette = pal_tableau$sequential$blue_teal,
                                               na.value = "grey50",
                                               direction = 1,start = 0, end = 1,breaks = NULL,
+                                              guide = "coloursteps",
                                               ...) {
   the_pal = palette
   if(direction != 1) the_pal = rev(the_pal)
@@ -164,7 +167,7 @@ scale_fill_tableau_binned_gradient = function(palette = pal_tableau$sequential$b
                palette=  manual_rescale,# scales::gradient_n_pal(colours = the_pal),
                na.value = na.value,
                breaks = breaks,
-               guide = guide_bins(theme = theme(legend.ticks = element_blank(),legend.axis.line = element_line(color = "transparent"))),
+               guide = guide,
                ...,
                show.limits = TRUE,
                oob = scales::squish)
@@ -180,6 +183,7 @@ scale_fill_tableau_binned_gradient = function(palette = pal_tableau$sequential$b
 #' @param start The (corrected) color range in \[0,1\]⁠ at which the color map starts.
 #' @param end The (corrected) color range in \[0,1\]⁠ at which the color map ends.
 #' @param breaks The breaks for bins
+#' @param guide Type of legend. Use guide names like 'coloursteps' or 'bins', or use 	a function used to create a guide. See \code{\link[ggplot2]{guides}} for more information.
 #' @param ... Other arguments passed on to \code{\link[ggplot2]{binned_scale}}.
 #'
 #' @examples ggplot(iris)+
@@ -187,10 +191,11 @@ scale_fill_tableau_binned_gradient = function(palette = pal_tableau$sequential$b
 #'   scale_color_tableau_binned_gradient(palette = pal_tableau$diverging$temperature,
 #'                                       direction = 1,
 #'                                       n.breaks = 7,
+#'                                       guide = guide_bins(theme = theme(legend.ticks = element_blank(),legend.axis.line = element_line(color = "transparent"))),
 #'                                       start = 0.2,end = 0.8)
 
 scale_color_tableau_binned_gradient = function(palette = pal_tableau$sequential$blue_teal, na.value = "grey50",
-                                               direction=1,start = 0, end = 1,breaks = NULL, ...) {
+                                               direction=1,start = 0, end = 1,breaks = NULL, guide = "coloursteps",...) {
   the_pal = palette
   if(direction != 1) the_pal = rev(the_pal)
   manual_rescale = \(x) scales::gradient_n_pal(colours = the_pal)(scales::rescale(x,to = c(start,end),from = c(0,1)))
@@ -204,7 +209,7 @@ scale_color_tableau_binned_gradient = function(palette = pal_tableau$sequential$
                palette=  manual_rescale,# scales::gradient_n_pal(colours = the_pal),
                na.value = na.value,
                breaks = breaks,
-               guide = guide_bins(theme = theme(legend.ticks = element_blank(),legend.axis.line = element_line(color = "transparent"))),
+               guide = guide,
                ...,
                show.limits = TRUE,
                oob = scales::squish)
@@ -315,14 +320,16 @@ scale_color_tableau_gradient2 = function(palette = pal_tableau$diverging$classic
 #'
 #' @examples ggplot(iris)+
 #'  geom_col(aes(Sepal.Length,Sepal.Width,fill = Sepal.Length))+
-#'  scale_fill_tableau_binned_gradient2(palette = pal_tableau$diverging$temperature)
-#'
+#'  scale_fill_tableau_binned_gradient2(palette = pal_tableau$diverging$temperature,
+#'                                      guide = guide_bins(
+#'                                      theme = theme(legend.ticks = element_blank(),legend.axis.line = element_line(color = "transparent"))))
 #'
 
 scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$red_blue_white,
                                                na.value = "grey50",
                                                direction = 1,start = 0, end = 1,
                                                breaks = NULL,
+                                               guide = "colorsteps",
                                                transform = "identity",...) {
   the_pal = palette
   if(direction == 1) the_pal = rev(the_pal)
@@ -351,7 +358,7 @@ scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$r
                transform = transform,
                show.limits = TRUE,
                breaks = breaks,
-               guide = guide_bins(theme = theme(legend.ticks = element_blank(),legend.axis.line = element_line(color = "transparent"))),
+               guide = guide,
                ...,
                oob = scales::squish)
 }
@@ -370,13 +377,15 @@ scale_fill_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$r
 #'
 #' @examples ggplot(iris)+
 #'  geom_point(aes(Sepal.Length,Sepal.Width,color = Sepal.Length))+
-#'  scale_color_tableau_binned_gradient2(palette = pal_tableau$diverging$red_blue_white, direction = 1)
+#'  scale_color_tableau_binned_gradient2(palette = pal_tableau$diverging$red_blue_white, direction = 1,
+#'                                       guide = guide_bins(theme = theme(legend.ticks = element_blank(),legend.axis.line = element_line(color = "transparent"))))
 #'
 
 scale_color_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$red_blue_white,
                                                 na.value = "grey50",
                                                 direction=1,start = 0, end = 1,
                                                 breaks = NULL,
+                                                guide = "coloursteps",
                                                 ...,
                                                 transform = "identity") {
   the_pal = palette
@@ -406,7 +415,7 @@ scale_color_tableau_binned_gradient2 = function(palette = pal_tableau$diverging$
                transform = transform,
                show.limits = TRUE,
                breaks = breaks,
-               guide = guide_bins(theme = theme(legend.ticks = element_blank(),legend.axis.line = element_line(color = "transparent"))),
+               guide = guide,
                ...,
                oob = scales::squish)
 
