@@ -28,7 +28,6 @@ library.
 
 ``` r
 library(ggplot2)
-#> Warning: package 'ggplot2' was built under R version 4.4.3
 library(paltableau)
 ggplot(iris)+
   geom_col(aes(Sepal.Length, Sepal.Width, fill = Sepal.Width))+
@@ -37,7 +36,7 @@ ggplot(iris)+
                             midpoint = 3)
 ```
 
-<img src="man/figures/README-example-1.png" width="50%" />
+<img src="man/figures/README-example-1.png" width="70%" />
 
 These functions all include a `palette` parameter, which can accept
 built-in palette data. The palette data typically sourced from

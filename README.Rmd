@@ -33,7 +33,7 @@ devtools::install_github("sToney239/paltableau")
 
 The primary functions in this package are something like `scale_fill_tableau_xxx` and `scale_color_tableau_xxx.` These functions can be used as replacements for similar functions from the `ggplot2` library.
 
-```{r example, fig.width=5, fig.height=3, out.width="50%"}
+```{r example, fig.width=8, fig.height=5, out.width="70%",warning=FALSE}
 library(ggplot2)
 library(paltableau)
 ggplot(iris)+
