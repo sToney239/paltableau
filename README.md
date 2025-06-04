@@ -37,12 +37,13 @@ ggplot(iris)+
                             midpoint = 3)
 ```
 
-<img src="man/figures/README-example-1.png" width="100%" /> These
-functions all include a `palette` parameter, which can accept built-in
-palette data. The palette data typically sourced from
+<img src="man/figures/README-example-1.png" width="50%" />
+
+These functions all include a `palette` parameter, which can accept
+built-in palette data. The palette data typically sourced from
 [Tableau](https://help.tableau.com/current/pro/desktop/en-us/viewparts_marks_markproperties_color.htm),
-some palettes in the `sequential` category that start with “map\_” are
-derived from [Carto](https://carto.com/carto-colors/)
+some palettes in the `sequential` category that start with “**map\_**”
+are derived from [Carto](https://carto.com/carto-colors/)
 
 ## Palette selection
 

@@ -33,7 +33,7 @@ devtools::install_github("sToney239/paltableau")
 
 The primary functions in this package are something like `scale_fill_tableau_xxx` and `scale_color_tableau_xxx.` These functions can be used as replacements for similar functions from the `ggplot2` library.
 
-```{r example, fig.width=5, fig.height=3}
+```{r example, fig.width=5, fig.height=3, out.width="50%"}
 library(ggplot2)
 library(paltableau)
 ggplot(iris)+
@@ -42,7 +42,8 @@ ggplot(iris)+
                             transform = "pseudo_log",
                             midpoint = 3)
 ```
-These functions all include a `palette` parameter, which can accept built-in palette data. The palette data typically sourced from [Tableau](https://help.tableau.com/current/pro/desktop/en-us/viewparts_marks_markproperties_color.htm), some palettes in the `sequential` category that start with "map_" are derived from [Carto](https://carto.com/carto-colors/)
+
+These functions all include a `palette` parameter, which can accept built-in palette data. The palette data typically sourced from [Tableau](https://help.tableau.com/current/pro/desktop/en-us/viewparts_marks_markproperties_color.htm), some palettes in the `sequential` category that start with "**map_**" are derived from [Carto](https://carto.com/carto-colors/)
 
 ## Palette selection
 
