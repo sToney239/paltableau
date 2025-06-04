@@ -3,7 +3,7 @@ Title: tableau palette for ggplot2
 Version: 0.1.0
 Authors@R: 
     person("Zhaoyang", "Shi", , "fumeshroom4@gmail.com", role = c("aut", "cre"))
-Description: Tableau palette for ggplot2.
+Description: ggplot2 Color scales for palettes from Tableau
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
