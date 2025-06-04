@@ -33,8 +33,8 @@ library(paltableau)
 ggplot(iris)+
   geom_col(aes(Sepal.Length, Sepal.Width, fill = Sepal.Width))+
   scale_fill_tableau_steps2(palette = pal_tableau$diverging$red_blue_white,
-                                      transform = "pseudo_log",
-                                      midpoint = 3)
+                            transform = "pseudo_log",
+                            midpoint = 3)
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" /> These
