@@ -39,7 +39,7 @@ ggplot(iris)+
 
 <img src="man/figures/README-example-1.png" width="100%" /> These
 functions all include a `palette` parameter, which can accept built-in
-palette data. These palette data typically sourced from
+palette data. The palette data typically sourced from
 [Tableau](https://help.tableau.com/current/pro/desktop/en-us/viewparts_marks_markproperties_color.htm),
 some palettes in the `sequential` category that start with “map\_” are
 derived from [Carto](https://carto.com/carto-colors/)
